@@ -1,0 +1,13 @@
+<style>{{{require 'mocha/mocha.css'}}}</style>
+<script>
+{{{require 'mocha/mocha'}}}
+mocha.setup('bdd');
+window.addEventListener('load', function () {
+  mocha.checkLeaks();mocha.run();
+});
+</script>
+{{#embed "panel" title="Tests" id="tests"}}
+  {{#content "content"}}
+    <div id="mocha"></div>
+  {{/content}}
+{{/embed}}

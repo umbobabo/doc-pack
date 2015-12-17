@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{#if config.doc.base}}
+    <base href="{{config.doc.base}}"/>
+    {{/if}}
+    {{#block "styles"}}
+      <style>{{require 'prismjs/themes/prism.css'}}</style>
+      <style>{{require './templates/style.css'}}</style>
+    {{/block}}
+  </head>
+  <body>
+    {{#block "main"}}{{/block}}
+    {{#block "scripts"}}{{/block}}
+  </body>
+</html>
