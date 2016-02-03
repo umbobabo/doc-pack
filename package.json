@@ -1,0 +1,72 @@
+{
+  "name": "@economist/doc-pack",
+  "version": "0.0.0-development",
+  "description": "",
+  "homepage": "http://economist-componentns.github.io/doc-pack",
+  "bugs": "http://github.com/economist-componentns/doc-pack/issues",
+  "license": "MIT",
+  "author": "The Economist Editorial (https://economist.com)",
+  "files": [
+    "lib/"
+  ],
+  "main": "lib/index.js",
+  "bin": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/economist-componentns/doc-pack"
+  },
+  "scripts": {
+    "lint": "eslint src test --ignore-path .gitignore",
+    "prepublish": "babel src -d lib",
+    "pretest": "npm run lint",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test": "echo Everything is fine, nothing to see here",
+    "watch": "npm run prepublish -- -w"
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "validate-commit-msg",
+      "pre-commit": "npm t"
+    }
+  },
+  "babel": {
+    "presets": [
+      "es2015-loose",
+      "stage-2"
+    ],
+    "compact": false,
+    "ignore": "node_modules",
+    "retainLines": true
+  },
+  "eslintConfig": {
+    "extends": "strict",
+    "parser": "babel-eslint"
+  },
+  "dependencies": {
+    "handlebars-layouts": "^3.1.3",
+    "helper-markdown": "^0.2.1",
+    "helper-md": "^0.1.0",
+    "helper-read": "^0.1.0",
+    "helper-resolve": "^0.3.1",
+    "highlight.js": "^9.1.0",
+    "prismjs": "^1.3.0"
+  },
+  "devDependencies": {
+    "babel": "^6.3.26",
+    "babel-cli": "^6.4.5",
+    "babel-eslint": "^4.1.8",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-stage-2": "^6.3.13",
+    "babel-runtime": "^6.3.19",
+    "chai": "^3.5.0",
+    "eslint": "^1.10.3",
+    "eslint-config-strict": "^7.0.3",
+    "eslint-plugin-filenames": "^0.2.0",
+    "ghooks": "^1.0.3",
+    "mocha": "^2.4.5",
+    "semantic-release": "^4.3.5",
+    "travis-after-all": "^1.4.4",
+    "validate-commit-msg": "^1.1.1"
+  }
+}

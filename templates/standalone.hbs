@@ -1,0 +1,15 @@
+{{#extend "layout"}}
+
+  {{#content "styles" mode="prepend"}}
+    <link rel="stylesheet" href="./bundle.css"/>
+  {{/content}}
+
+  {{#content "main"}}
+    {{> component-preview}}
+  {{/content}}
+
+  {{#content "scripts"}}
+    <script src="./bundle.js"></script>
+  {{/content}}
+
+{{/extend}}

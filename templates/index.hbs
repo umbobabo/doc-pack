@@ -1,0 +1,22 @@
+{{#extend "layout"}}
+
+  {{#content "styles" mode="prepend"}}
+    <link rel="stylesheet" href="./bundle.css"/>
+  {{/content}}
+
+  {{#content "scripts"}}
+    <script src="./bundle.js"></script>
+  {{/content}}
+
+  {{#content "main"}}
+    <h1 class="component-title">
+      {{name}}
+      <span>(v{{version}})</span>
+    </h1>
+    {{> component-preview }}
+    {{> component-readme }}
+    {{> component-example }}
+    {{> component-tests }}
+  {{/content}}
+
+{{/extend}}
