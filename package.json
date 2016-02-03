@@ -21,7 +21,8 @@
     "pretest": "npm run lint",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test": "echo Everything is fine, nothing to see here",
-    "watch": "npm run prepublish -- -w"
+    "watch": "npm run prepublish -- -w",
+    "pages": "echo stub for build.sh"
   },
   "config": {
     "ghooks": {
