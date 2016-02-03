@@ -2,8 +2,8 @@
   "name": "@economist/doc-pack",
   "version": "0.0.0-development",
   "description": "",
-  "homepage": "http://economist-componentns.github.io/doc-pack",
-  "bugs": "http://github.com/economist-componentns/doc-pack/issues",
+  "homepage": "http://economist-components.github.io/doc-pack",
+  "bugs": "http://github.com/economist-components/doc-pack/issues",
   "license": "MIT",
   "author": "The Economist Editorial (https://economist.com)",
   "files": [
@@ -13,7 +13,7 @@
   "bin": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/economist-componentns/doc-pack"
+    "url": "git+ssh://git@github.com/economist-components/doc-pack"
   },
   "scripts": {
     "lint": "eslint src test --ignore-path .gitignore",
