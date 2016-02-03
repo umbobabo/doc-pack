@@ -7,7 +7,9 @@
   "license": "MIT",
   "author": "The Economist Editorial (https://economist.com)",
   "files": [
-    "lib/"
+    "partials/*",
+    "templates/*",
+    "lib/*"
   ],
   "main": "lib/index.js",
   "bin": "lib/index.js",
