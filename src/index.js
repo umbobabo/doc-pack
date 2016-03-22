@@ -1,11 +1,11 @@
-import handlebarsLayouts from 'handlebars-layouts';
-import helperMd from 'helper-md';
-import helperMarkdown from 'helper-markdown';
-import helperRead from 'helper-read';
 import { highlight, languages } from 'prismjs';
+import handlebarsLayouts from 'handlebars-layouts';
+import helperMarkdown from 'helper-markdown';
+import helperMd from 'helper-md';
+import helperRead from 'helper-read';
+import { join as joinPath } from 'path';
 import { readFileSync } from 'fs';
 import { sync as resolve } from 'resolve';
-import { join as joinPath } from 'path';
 const debug = require('debug')('devpack:docgen');
 export function register(handlebars) {
   handlebarsLayouts.register(handlebars);
@@ -16,7 +16,7 @@ export function register(handlebars) {
     const lang = languages[(options.hash || {}).lang] || languages.js;
     const contents = options.fn(this) || ''; // eslint-disable-line no-invalid-this
     const output = highlight(contents, lang);
-    return new handlebars.SafeString(`<pre><code>${output}</pre></code>`);
+    return new handlebars.SafeString(`<pre><code>${ output }</pre></code>`);
   });
   handlebars.registerHelper('json', (json) =>
     new handlebars.SafeString(`<pre>${
@@ -24,10 +24,10 @@ export function register(handlebars) {
     }</pre>`)
   );
   handlebars.registerHelper('require', (file) => {
-    debug(`Requiring file: ${file}`);
+    debug(`Requiring file: ${ file }`);
     try {
       return readFileSync(resolve(file, { basedir: process.cwd() }), 'utf8');
-    } catch (error) {
+    } catch (readError) {
       return readFileSync(resolve(file, { basedir: joinPath(__dirname, '..') }), 'utf8');
     }
   });
@@ -40,7 +40,7 @@ export function register(handlebars) {
     'layout',
     'panel',
   ].forEach((name) => (
-    handlebars.registerPartial(name, readFileSync(partial(`${name}.hbs`), 'utf8'))
+    handlebars.registerPartial(name, readFileSync(partial(`${ name }.hbs`), 'utf8'))
   ));
   return handlebars;
 }
