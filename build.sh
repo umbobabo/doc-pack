@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SSH_KEY="${1:-/root/.ssh/id_rsa}"
-DOCKER_IMAGE="docker.io/economist/base-node:latest"
+DOCKER_IMAGE="node:argon"
 HOST_IP=$(ip route get 1 | awk '{print $NF;exit}')
 WITH_SINOPIA=${WITH_SINOPIA:-"true"}
 SINOPIA_URL="http://${HOST_IP}:4873"
@@ -37,7 +37,8 @@ exec docker run \
         trap 'chmod 777 node_modules -R' EXIT &&\
         cd /code &&\
         umask 000 &&\
-        printf \"@economist:registry=https://registry.npmjs.org/\n//registry.npmjs.org/:_authToken=%s\n\" \"$NPM_TOKEN\" > ~/.npmrc &&\
+        npm i -g npm@3.8.1 && \
+        printf \"@semantic-release:registry=https://registry.npmjs.org/\n@economist:registry=https://registry.npmjs.org/\n//registry.npmjs.org/:_authToken=%s\n\" \"$NPM_TOKEN\" > ~/.npmrc &&\
         { \
           [ \"$WITH_SINOPIA\" != \"true\" ] || \
           (
@@ -47,9 +48,12 @@ exec docker run \
           );
           true ;\
         } &&\
-        npm config set unsafe-perm true
+        npm config set unsafe-perm true &&\
         npm run env &&\
-        npm i &&\
+        (npm i || npm i || (npm config delete registry && npm i)) &&\
+        npm config delete registry &&\
+        npm config delete @semantic-release:registry &&\
+        npm config delete @economist:registry &&\
         SAUCE_USERNAME=${SAUCE_USERNAME} \
         SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
         npm t &&\
