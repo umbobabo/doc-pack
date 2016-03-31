@@ -70,7 +70,7 @@
     "@economist/provision-react-component": "1.7.4",
     "babel": "^6.3.26",
     "babel-cli": "^6.4.5",
-    "babel-eslint": "^6.0.0",
+    "babel-eslint": "^6.0.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-es2015-loose": "^7.0.0",
     "babel-preset-stage-2": "^6.3.13",
