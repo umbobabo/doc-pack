@@ -78,7 +78,7 @@
     "eslint": "~2.2.0",
     "eslint-config-strict": "^8.5.1",
     "eslint-plugin-filenames": "^0.2.0",
-    "ghooks": "^1.1.1",
+    "ghooks": "^1.2.1",
     "npm-run-all": "^1.7.0",
     "semantic-release": "^4.3.5",
     "travis-after-all": "^1.4.4",
